@@ -18,5 +18,5 @@ MonoBehaviour:
   moveForce: 700
   groundMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 567
   jumpForce: 110
