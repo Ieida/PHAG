@@ -19,6 +19,7 @@ public class PlayerMovementBehaviour : ControllableBehaviour
     {
         CapsuleCollider coll = GetComponent<CapsuleCollider>();
         Vector3 spherePos = new Vector3(transform.position.x, transform.position.y-((coll.height/2)-coll.radius)-0.04f, transform.position.z);
+        Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(spherePos, coll.radius-0.02f);
     }
 

@@ -23,18 +23,14 @@ public class CarryController : MonoBehaviour
     {
         if(context.started)
         {
-            Debug.Log("started");
             if(currentObjectsWeight >= data.maxCarryWeight)
                 return;
 
-            Debug.Log("can carry more");
             RaycastHit[] hits;
             hits = Physics.RaycastAll(transform.position, transform.forward, data.maxPickupRange, data.pickupItemMask);
             if(hits.Length < 1)
                 return;
 
-            Debug.Log("there is more to carry");
-            Debug.Log(hits.Length);
             for (int i = 0; i < hits.Length; i++)
             {
                 if(!hits[i].rigidbody)
@@ -47,16 +43,14 @@ public class CarryController : MonoBehaviour
                 //add i to carryObjects
                 newRb.transform.parent = transform;
                 newRb.useGravity = false;
-                newRb.drag = 20.0f;
-                newRb.angularDrag = 5.0f;
+                newRb.drag = 7.0f;
+                newRb.angularDrag = 3.75f;
                 currentObjectsWeight += newRb.mass;
                 carryObjects.Add(newRb);
-                Debug.Log("added to carry");
             }
         }
         else if(context.canceled)
         {
-            Debug.Log("canceled");
             Drop();
         }
     }
@@ -70,7 +64,6 @@ public class CarryController : MonoBehaviour
         for (int i = 0; i < carryobjs.Length; i++)
         {
             float dist = (transform.position-carryobjs[i].position).magnitude;
-            Debug.Log(dist);
             if(dist <= data.dropDistance)
                 continue;
 
