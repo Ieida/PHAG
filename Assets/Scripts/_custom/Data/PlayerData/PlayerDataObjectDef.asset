@@ -15,7 +15,7 @@ MonoBehaviour:
   mouseSensitivity: 0.1
   xLock: 90
   maxMoveSpeed: 3
-  moveForce: 1000
+  moveForce: 800
   groundMask:
     serializedVersion: 2
     m_Bits: 567
