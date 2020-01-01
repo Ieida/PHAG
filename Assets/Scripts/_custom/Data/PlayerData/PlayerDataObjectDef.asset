@@ -20,3 +20,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 567
   jumpForce: 120
+  crouchSpeed: 5

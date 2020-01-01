@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: e1e893e03ec0fb448bf3f2595bd7c306,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -225,7 +225,7 @@ PrefabInstance:
     - target: {fileID: 7492957357350648728, guid: b0e3b74b07062ca43aa17f2c81f59a03,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7492957357350648728, guid: b0e3b74b07062ca43aa17f2c81f59a03,
         type: 3}
@@ -256,6 +256,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 7492957357350648728, guid: b0e3b74b07062ca43aa17f2c81f59a03,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7492957357350648728, guid: b0e3b74b07062ca43aa17f2c81f59a03,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7492957357350648728, guid: b0e3b74b07062ca43aa17f2c81f59a03,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7492957357350648728, guid: b0e3b74b07062ca43aa17f2c81f59a03,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1564081980}
+    - target: {fileID: 7492957357350648728, guid: b0e3b74b07062ca43aa17f2c81f59a03,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 949268671}
+    - target: {fileID: 7492957357350648728, guid: b0e3b74b07062ca43aa17f2c81f59a03,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Crouch
       objectReference: {fileID: 0}
     - target: {fileID: 7492957357350648729, guid: b0e3b74b07062ca43aa17f2c81f59a03,
         type: 3}
@@ -11721,6 +11751,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcada81149d809a48adc499f97b2b477, type: 3}
+--- !u!114 &1564081980 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7923111208761888826, guid: dcada81149d809a48adc499f97b2b477,
+    type: 3}
+  m_PrefabInstance: {fileID: 1564081979}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61931f19afc533948a1d36319c249a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1855037225
 GameObject:
   m_ObjectHideFlags: 0

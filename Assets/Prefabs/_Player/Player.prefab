@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1097093363393733796}
+  - component: {fileID: 3996343814736943549}
   - component: {fileID: 2545508665497320688}
   m_Layer: 8
-  m_Name: Collision
+  m_Name: StandingCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,6 +32,20 @@ Transform:
   m_Father: {fileID: 7833164881721321924}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &3996343814736943549
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4771608900288427223}
+  m_Material: {fileID: 13400000, guid: 8bb948937620857418008688b69e7a76, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.19
+  m_Height: 1.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &2545508665497320688
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -45,6 +60,66 @@ CapsuleCollider:
   m_Height: 1.6
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &7695191027932559063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4802311829376986065}
+  - component: {fileID: 8780697084180849481}
+  - component: {fileID: 4673645982886433877}
+  m_Layer: 8
+  m_Name: CrouchingCollision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4802311829376986065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7695191027932559063}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7833164881721321924}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &8780697084180849481
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7695191027932559063}
+  m_Material: {fileID: 13400000, guid: 8bb948937620857418008688b69e7a76, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.19
+  m_Height: 1.1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &4673645982886433877
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7695191027932559063}
+  m_Material: {fileID: 13400000, guid: 3ea25e690aecc7145bbcc62a0b196faa, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.21
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7833164881721321929
 GameObject:
   m_ObjectHideFlags: 0
@@ -54,7 +129,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7833164881721321924}
-  - component: {fileID: 7833164881721321931}
   - component: {fileID: 7833164881721321930}
   - component: {fileID: 7833164881721321926}
   - component: {fileID: 7833164881721321925}
@@ -77,23 +151,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1097093363393733796}
+  - {fileID: 4802311829376986065}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &7833164881721321931
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7833164881721321929}
-  m_Material: {fileID: 13400000, guid: 8bb948937620857418008688b69e7a76, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.19
-  m_Height: 1.7
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7833164881721321930
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -140,4 +201,7 @@ MonoBehaviour:
   update: 1
   fixedUpdate: 1
   data: {fileID: 11400000, guid: 5f119eca8525e3441a2392a1eb3c680b, type: 2}
+  rb: {fileID: 7833164881721321930}
   playerCamera: {fileID: 0}
+  playerStandingCollider: {fileID: 3996343814736943549}
+  playerCrouchingCollider: {fileID: 8780697084180849481}

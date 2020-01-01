@@ -13,4 +13,6 @@ public class PlayerData : ControllerData
     [Header("Jump Settings")]
     public LayerMask groundMask;
     public float jumpForce;
+    [Header("Crouch Settings")]
+    public float crouchSpeed;
 }

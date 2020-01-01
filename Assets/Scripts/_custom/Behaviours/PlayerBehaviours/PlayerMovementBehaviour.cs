@@ -1,44 +1,77 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEditor;
 
-[RequireComponent(typeof(Rigidbody), typeof(CapsuleCollider))]
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovementBehaviour : ControllableBehaviour
 {    
     public PlayerData data;
 
-    Rigidbody rb;
+    //movement
+    public Rigidbody rb;
 
+    Vector2 movementInput;
+
+    //look
     public Transform playerCamera;
 
-    CapsuleCollider playerCollider;
-
     Vector2 lookAxes;
-    Vector2 movementInput;
+
+    //crouch
+    public CapsuleCollider playerStandingCollider;
+    public CapsuleCollider playerCrouchingCollider;
+
+    Vector2 cameraPositions;
+    float camPosY;
+
+    bool isCrouching = false;
+
+    public void AssemblePlayer()
+    {
+        rb = GetComponent<Rigidbody>();
+        playerStandingCollider = transform.GetChild(0).GetComponents<CapsuleCollider>()[0];
+        playerCrouchingCollider = transform.GetChild(1).GetComponents<CapsuleCollider>()[0];
+        playerCamera = Camera.main.transform;
+        int sibIndex = transform.GetSiblingIndex();
+        playerCamera.SetSiblingIndex(sibIndex++);
+        playerCamera.position = new Vector3(transform.position.x, transform.position.y+(playerStandingCollider.height/2)-playerStandingCollider.radius, transform.position.z);
+        playerCamera.rotation = transform.rotation;
+    }
 
     void OnDrawGizmosSelected()
     {
-        CapsuleCollider coll = GetComponent<CapsuleCollider>();
-        Vector3 spherePos = new Vector3(transform.position.x, transform.position.y-((coll.height/2)-coll.radius)-0.04f, transform.position.z);
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(spherePos, coll.radius-0.02f);
-    }
-
-    void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-        playerCollider = GetComponent<CapsuleCollider>();
+        if(playerStandingCollider)
+        {
+            Vector3 spherePos = new Vector3(transform.position.x, transform.position.y-((playerStandingCollider.height/2)-playerStandingCollider.radius)-0.04f, transform.position.z);
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(spherePos, playerStandingCollider.radius-0.02f);
+        }
+        else if(playerCrouchingCollider)
+        {
+            Vector3 spherePos = new Vector3(transform.position.x, transform.position.y-((playerCrouchingCollider.height/2)-playerCrouchingCollider.radius)-0.04f, transform.position.z);
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(spherePos, playerCrouchingCollider.radius-0.02f);
+        }
     }
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         lookAxes = new Vector2(transform.eulerAngles.x, transform.eulerAngles.y);
+        cameraPositions.x = (playerStandingCollider.height/2)-playerStandingCollider.radius;
+        cameraPositions.y = cameraPositions.x-(playerStandingCollider.height-playerCrouchingCollider.height);
+        camPosY = cameraPositions.x;
     }
 
     override public void Behave()
     {
         playerCamera.rotation = Quaternion.Euler(lookAxes.x, lookAxes.y, 0.0f);
-        playerCamera.position = new Vector3(transform.position.x, transform.position.y+(playerCollider.height/2)-playerCollider.radius, transform.position.z);
+        if(isCrouching)
+            camPosY = Mathf.Lerp(camPosY, transform.position.y+cameraPositions.y, Time.deltaTime*data.crouchSpeed);
+        else
+            camPosY = Mathf.Lerp(camPosY, transform.position.y+cameraPositions.x, Time.deltaTime*data.crouchSpeed);
+
+        playerCamera.position = new Vector3(transform.position.x, camPosY, transform.position.z);
     }
 
     override public void FixedBehave()
@@ -69,8 +102,27 @@ public class PlayerMovementBehaviour : ControllableBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        Vector3 spherePos = new Vector3(transform.position.x, transform.position.y-((playerCollider.height/2)-playerCollider.radius)-0.04f, transform.position.z);
-        if(Physics.CheckSphere(spherePos, playerCollider.radius-0.02f, data.groundMask))
+        Vector3 spherePos = new Vector3(transform.position.x, transform.position.y-((playerStandingCollider.height/2)-playerStandingCollider.radius)-0.04f, transform.position.z);
+        if(Physics.CheckSphere(spherePos, playerStandingCollider.radius-0.02f, data.groundMask))
             rb.AddForce(transform.up*data.jumpForce, ForceMode.Impulse);
+    }
+
+    public void Crouch(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            isCrouching = true;
+        }
+        else if(context.performed)
+        {
+            playerStandingCollider.gameObject.SetActive(false);
+            playerCrouchingCollider.gameObject.SetActive(true);
+        }
+        else if(context.canceled)
+        {
+            playerStandingCollider.gameObject.SetActive(true);
+            playerCrouchingCollider.gameObject.SetActive(false);
+            isCrouching = false;
+        }
     }
 }
