@@ -20,16 +20,24 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - AO:
+        m_Texture: {fileID: 2800000, guid: bb29b8052e01fe247a9eff2c74efa5f3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - Albedo:
-        m_Texture: {fileID: 2800000, guid: 3436f9e9a1fac184191e69b1ea884a33, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0acc4e26760c16e4f8ff1cbd1c6a7996, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Normal:
-        m_Texture: {fileID: 2800000, guid: e77e66d0ad552224a856c235f40210b8, type: 3}
+        m_Texture: {fileID: 2800000, guid: 921f9f56033f40840acedca7a54e8d0c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Smoothness:
         m_Texture: {fileID: 2800000, guid: 283ff24d4e4ef264ca514b8f43fa60fd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_886414A8:
+        m_Texture: {fileID: 2800000, guid: 5d85c8634f077b64793b4be2c489edce, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -86,7 +94,7 @@ Material:
     - useFresnel: 0
     m_Colors:
     - Color_B84496EC: {r: 1, g: 1, b: 1, a: 0}
-    - Fresnel_Color: {r: 0.67135245, g: 0.6981132, b: 0.5828587, a: 0}
+    - Fresnel_Color: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
