@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: LOWMat
-    second: {fileID: 2100000, guid: 6fcec21b916a22e468e43c817328059d, type: 2}
+    second: {fileID: 2100000, guid: c23150b1724e8e84c9073e8b0e4ffbe0, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
