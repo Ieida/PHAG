@@ -15,4 +15,7 @@ public class PlayerData : ControllerData
     public float jumpForce;
     [Header("Crouch Settings")]
     public float crouchSpeed;
+    [Header("Interact Settings")]
+    public LayerMask interactMask;
+    public float interactRange;
 }

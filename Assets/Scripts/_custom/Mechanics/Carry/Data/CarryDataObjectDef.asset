@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9118de02787de144ba2a136d06b89f6, type: 3}
   m_Name: CarryDataObjectDef
   m_EditorClassIdentifier: 
-  maxCarryWeight: 25
+  maxCarryWeight: 35
   maxPickupRange: 1.3
   dropDistance: 1.5
   pickupItemMask:

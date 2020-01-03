@@ -21,3 +21,7 @@ MonoBehaviour:
     m_Bits: 567
   jumpForce: 120
   crouchSpeed: 5
+  interactMask:
+    serializedVersion: 2
+    m_Bits: 2560
+  interactRange: 2
