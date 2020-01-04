@@ -10,6 +10,7 @@ public class PlayerData : ControllerData
     [Header("Move Settings")]
     public float maxMoveSpeed;
     public float moveForce;
+    public float maxStairHeight;
     [Header("Jump Settings")]
     public LayerMask groundMask;
     public float jumpForce;

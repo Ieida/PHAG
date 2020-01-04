@@ -16,6 +16,7 @@ MonoBehaviour:
   xLock: 90
   maxMoveSpeed: 3
   moveForce: 800
+  maxStairHeight: 0.35
   groundMask:
     serializedVersion: 2
     m_Bits: 567

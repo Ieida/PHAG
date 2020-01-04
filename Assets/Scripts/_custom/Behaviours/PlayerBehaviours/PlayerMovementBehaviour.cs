@@ -61,6 +61,7 @@ public class PlayerMovementBehaviour : ControllableBehaviour
         cameraPositions.x = (playerStandingCollider.height/2)-playerStandingCollider.radius;
         cameraPositions.y = cameraPositions.x-(playerStandingCollider.height-playerCrouchingCollider.height);
         camPosY = cameraPositions.x;
+        InvokeRepeating("StairCheck", 0.1f, 0.16f);
     }
 
     override public void Behave()
@@ -98,6 +99,56 @@ public class PlayerMovementBehaviour : ControllableBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
+    }
+
+    void StairCheck()
+    {
+        Quaternion rot = Quaternion.Euler(0.0f, playerCamera.eulerAngles.y, 0.0f);
+        Vector3 dir = rot*new Vector3(0.0f, -1.0f, 1.0f);
+        Vector3 pos = transform.position+rot*Vector3.forward*(playerStandingCollider.radius+0.02f);
+        pos.y -= playerStandingCollider.height/2-data.maxStairHeight;
+        RaycastHit hit;
+        if(Physics.Raycast(pos, dir, out hit, 0.25f))
+        {
+            if(hit.normal == transform.up)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y+(hit.point.y-(transform.position.y-playerStandingCollider.height/2))+0.2f, transform.position.z);
+                return;
+            }
+        }
+        dir = rot*new Vector3(0.0f, -1.0f, -1.0f);
+        pos = transform.position+rot*Vector3.back*(playerStandingCollider.radius+0.02f);
+        pos.y -= playerStandingCollider.height/2-data.maxStairHeight;
+        if(Physics.Raycast(pos, dir, out hit, 0.25f))
+        {
+            if(hit.normal == transform.up)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y+(hit.point.y-(transform.position.y-playerStandingCollider.height/2))+0.2f, transform.position.z);
+                return;
+            }
+        }
+        dir = rot*new Vector3(1.0f, -1.0f, 0.0f);
+        pos = transform.position+rot*Vector3.right*(playerStandingCollider.radius+0.02f);
+        pos.y -= playerStandingCollider.height/2-data.maxStairHeight;
+        if(Physics.Raycast(pos, dir, out hit, 0.25f))
+        {
+            if(hit.normal == transform.up)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y+(hit.point.y-(transform.position.y-playerStandingCollider.height/2))+0.2f, transform.position.z);
+                return;
+            }
+        }
+        dir = rot*new Vector3(-1.0f, -1.0f, 0.0f);
+        pos = transform.position+rot*Vector3.left*(playerStandingCollider.radius+0.02f);
+        pos.y -= playerStandingCollider.height/2-data.maxStairHeight;
+        if(Physics.Raycast(pos, dir, out hit, 0.25f))
+        {
+            if(hit.normal == transform.up)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y+(hit.point.y-(transform.position.y-playerStandingCollider.height/2))+0.2f, transform.position.z);
+                return;
+            }
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)

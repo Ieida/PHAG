@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class InteractController : MonoBehaviour
 {
     public PlayerData data;
+    public Image canvasimage;
+    public Sprite openHand;
+    public Sprite closedHand;
 
     void Start()
     {
@@ -14,9 +18,12 @@ public class InteractController : MonoBehaviour
     {
         RaycastHit hit;
         if(!Physics.Raycast(transform.position, transform.forward, out hit, data.interactRange, data.interactMask))
+        {
+            canvasimage.color = new Color(255.0f, 255.0f, 255.0f, 0.0f);
+            canvasimage.sprite = openHand;
             return;
-
-        //change cursor
+        }
+        canvasimage.color = new Color(255.0f, 255.0f, 255.0f, 255.0f);
     }
 
     public void Interact(InputAction.CallbackContext context)
@@ -32,6 +39,13 @@ public class InteractController : MonoBehaviour
             return;
 
         if(context.started)
+        {
+            canvasimage.sprite = closedHand;
             interactable.Interact();
+        }
+        else if(context.canceled)
+        {
+            canvasimage.sprite = openHand;
+        }
     }
 }

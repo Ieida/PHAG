@@ -145,3 +145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 5f119eca8525e3441a2392a1eb3c680b, type: 2}
+  canvasimage: {fileID: 0}
+  openHand: {fileID: 1220678065041405753, guid: 62255387b9fad8a488bbf3155f77debd,
+    type: 3}
+  closedHand: {fileID: -8694939823140075325, guid: 62255387b9fad8a488bbf3155f77debd,
+    type: 3}
