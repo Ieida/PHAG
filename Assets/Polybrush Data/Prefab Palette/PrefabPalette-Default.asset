@@ -30,3 +30,37 @@ MonoBehaviour:
       m_YScaleBool: 1
       m_ZScaleBool: 0
     name: ENV_Pebble_1
+  - gameObject: {fileID: 7202512394163725559, guid: b96d59990cc75e044891396580dc98eb,
+      type: 3}
+    settings:
+      m_Strength: 100
+      m_RotationRangeMin: {x: -80, y: 0, z: 0}
+      m_RotationRangeMax: {x: -100, y: 360, z: 360}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 1.6, y: 1.9}
+      m_UniformBool: 1
+      m_XRotationBool: 1
+      m_YRotationBool: 1
+      m_ZRotationBool: 1
+      m_XScaleBool: 1
+      m_YScaleBool: 1
+      m_ZScaleBool: 0
+    name: Prefab_GrassPatch01
+  - gameObject: {fileID: 4407676675033108696, guid: 0d6480a934349554d82bbe6ed9dd6861,
+      type: 3}
+    settings:
+      m_Strength: 100
+      m_RotationRangeMin: {x: -105, y: 0, z: 0}
+      m_RotationRangeMax: {x: -75, y: 360, z: 360}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 1.6, y: 2.1}
+      m_UniformBool: 1
+      m_XRotationBool: 1
+      m_YRotationBool: 1
+      m_ZRotationBool: 1
+      m_XScaleBool: 1
+      m_YScaleBool: 1
+      m_ZScaleBool: 0
+    name: Prefab_GrassPatch02
