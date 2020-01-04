@@ -2987,6 +2987,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d6480a934349554d82bbe6ed9dd6861, type: 3}
+--- !u!114 &290346737 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4963506753284066628, guid: 0c89ab9b2d465c34591596d9b2785165,
+    type: 3}
+  m_PrefabInstance: {fileID: 1608952904}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &295601971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7314,6 +7326,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3015810043493157382, guid: 3ccf0f061f4797c43870c112e5db7c0f,
+        type: 3}
+      propertyPath: hurtimage
+      value: 
+      objectReference: {fileID: 290346737}
     - target: {fileID: 7833164881721321924, guid: 3ccf0f061f4797c43870c112e5db7c0f,
         type: 3}
       propertyPath: m_LocalPosition.x
